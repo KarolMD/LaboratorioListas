@@ -3,7 +3,7 @@ package co.edu.uniquindio.poo.ejerciciosListaSimple;
 public class Main {
 
     public static void main(String[] args) {
-        probarContarRepetidos();
+        probarConcatenar();
     }
 
     public static void probarPosicionesImpares() {
@@ -80,8 +80,28 @@ public class Main {
 
         System.out.println("El número " + valor + " se repite " + repeticiones + " veces.");
     }
+    public static void probarConcatenar() {
+        ListaSimpleEnlazada<Integer> lista1 = new ListaSimpleEnlazada<>();
+        lista1.agregarUltimo(new Nodo<>(1));
+        lista1.agregarUltimo(new Nodo<>(2));
+        lista1.agregarUltimo(new Nodo<>(3));
 
+        ListaSimpleEnlazada<Integer> lista2 = new ListaSimpleEnlazada<>();
+        lista2.agregarUltimo(new Nodo<>(4));
+        lista2.agregarUltimo(new Nodo<>(5));
+        lista2.agregarUltimo(new Nodo<>(6));
 
+        System.out.print("Lista 1: ");
+        lista1.mostrar();
+
+        System.out.print("Lista 2: ");
+        lista2.mostrar();
+        // Concatenar ambas listas
+        ListaSimpleEnlazada<Integer> listaConcatenada = ListaSimpleEnlazada.concatenar(lista1, lista2);
+
+        System.out.print("Lista concatenada: ");
+        listaConcatenada.mostrar();
+    }
 }
 
 

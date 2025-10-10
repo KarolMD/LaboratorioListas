@@ -275,4 +275,25 @@ public class ListaSimpleEnlazada<T extends Comparable<T>> implements Iterable<T>
         }
         return contador;
     }
+    // Ejercicio 10 Concatenar dos listas simples y devolver una nueva
+    public static <T extends Comparable<T>> ListaSimpleEnlazada<T> concatenar(
+            ListaSimpleEnlazada<T> lista1,
+            ListaSimpleEnlazada<T> lista2) {
+
+        ListaSimpleEnlazada<T> listaResultante = new ListaSimpleEnlazada<>();
+
+        // Recorrer la primera lista y agregar sus elementos
+        Nodo<T> actual = lista1.primero;
+        while (actual != null) {
+            listaResultante.agregarUltimo(new Nodo<>(actual.getDato()));
+            actual = actual.getProximo();
+        }
+        // Recorrer la segunda lista y agregar sus elementos
+        actual = lista2.primero;
+        while (actual != null) {
+            listaResultante.agregarUltimo(new Nodo<>(actual.getDato()));
+            actual = actual.getProximo();
+        }
+        return listaResultante;
+    }
 }
