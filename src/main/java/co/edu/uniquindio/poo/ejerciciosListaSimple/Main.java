@@ -3,7 +3,7 @@ package co.edu.uniquindio.poo.ejerciciosListaSimple;
 public class Main {
 
     public static void main(String[] args) {
-        probarEliminarPar();
+        probarObtenerImpares();
     }
 
     public static void probarPosicionesImpares() {
@@ -46,6 +46,25 @@ public class Main {
         lista.eliminarPares();
         lista.mostrar();
     }
+    public static void probarObtenerImpares() {
+        ListaSimpleEnlazada<Integer> lista = new ListaSimpleEnlazada<>();
+
+        lista.agregarUltimo(new Nodo<>(1));
+        lista.agregarUltimo(new Nodo<>(2));
+        lista.agregarUltimo(new Nodo<>(3));
+        lista.agregarUltimo(new Nodo<>(4));
+        lista.agregarUltimo(new Nodo<>(5));
+
+        System.out.print("Lista original: ");
+        lista.mostrar();
+
+        // Crear una nueva lista solo con los impares
+        ListaSimpleEnlazada<Integer> listaImpares = lista.obtenerImpares();
+
+        System.out.print("Lista con valores impares: ");
+        listaImpares.mostrar();
+    }
+
 }
 
 

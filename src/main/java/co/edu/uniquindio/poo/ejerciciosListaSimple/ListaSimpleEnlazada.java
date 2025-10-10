@@ -201,7 +201,6 @@ public class ListaSimpleEnlazada<T extends Comparable<T>> implements Iterable<T>
             if (cedula.length() % 2 == 0) {
                 System.out.print(persona + " | ");
             }
-
             actual = actual.getProximo();
         }
 
@@ -222,20 +221,32 @@ public class ListaSimpleEnlazada<T extends Comparable<T>> implements Iterable<T>
                 // Si es par, eliminar el nodo
                 if (valor % 2 == 0) {
                     if (anterior == null) {
-                        // El nodo par está al inicio
                         primero = actual.getProximo();
                     } else {
-                        // Saltar el nodo actual
                         anterior.setProximo(actual.getProximo());
                     }
                     tamaño--;
                 } else {
-                    // Solo avanzamos el puntero anterior si no eliminamos
                     anterior = actual;
                 }
             }
             actual = actual.getProximo();
         }
         System.out.println("Nodos con números pares eliminados.");
+    }
+    //Ejercicio 4 devuelva una lista enlazada con los valores impares de una lista de números.
+    public ListaSimpleEnlazada<T> obtenerImpares() {
+        ListaSimpleEnlazada<T> listaImpares = new ListaSimpleEnlazada<>();
+        Nodo<T> actual = primero;
+
+        while (actual != null) {
+            Integer numero = (Integer) actual.getDato();
+
+            if (numero % 2 != 0) {
+                listaImpares.agregarUltimo(new Nodo<>(actual.getDato()));
+            }
+            actual = actual.getProximo();
+        }
+        return listaImpares;
     }
 }
