@@ -275,5 +275,4 @@ public class ListaSimpleEnlazada<T extends Comparable<T>> implements Iterable<T>
         }
         return contador;
     }
-
 }
