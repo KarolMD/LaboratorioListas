@@ -3,7 +3,7 @@ package co.edu.uniquindio.poo.ejerciciosListaSimple;
 public class Main {
 
     public static void main(String[] args) {
-        probarObtenerImpares();
+        probarContarRepetidos();
     }
 
     public static void probarPosicionesImpares() {
@@ -64,6 +64,23 @@ public class Main {
         System.out.print("Lista con valores impares: ");
         listaImpares.mostrar();
     }
+    public static void probarContarRepetidos() {
+        ListaSimpleEnlazada<Integer> lista = new ListaSimpleEnlazada<>();
+
+        lista.agregarUltimo(new Nodo<>(7));
+        lista.agregarUltimo(new Nodo<>(5));
+        lista.agregarUltimo(new Nodo<>(3));
+        lista.agregarUltimo(new Nodo<>(7));
+
+        System.out.print("Lista: ");
+        lista.mostrar();
+
+        int valor = 7;
+        int repeticiones = lista.contarRepetidos(valor);
+
+        System.out.println("El número " + valor + " se repite " + repeticiones + " veces.");
+    }
+
 
 }
 
