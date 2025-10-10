@@ -296,4 +296,8 @@ public class ListaSimpleEnlazada<T extends Comparable<T>> implements Iterable<T>
         }
         return listaResultante;
     }
+    //metodo que permita usar "primero" en el ejercico 11
+    public Nodo<T> getPrimero() {
+        return primero;
+    }
 }
