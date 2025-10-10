@@ -195,18 +195,47 @@ public class ListaSimpleEnlazada<T extends Comparable<T>> implements Iterable<T>
         System.out.print("Personas con cédula de longitud par: ");
 
         while (actual != null) {
-            // Verificamos si el dato guardado en el nodo es una Persona
-            if (actual.getDato() instanceof Persona) {
-                Persona persona = (Persona) actual.getDato();
-                String cedula = persona.getCedula();
+            Persona persona = (Persona) actual.getDato();
+            String cedula = persona.getCedula();
 
-                // Si la longitud de la cédula es par, la mostramos
-                if (cedula.length() % 2 == 0) {
-                    System.out.print(persona + " | ");
+            if (cedula.length() % 2 == 0) {
+                System.out.print(persona + " | ");
+            }
+
+            actual = actual.getProximo();
+        }
+
+        System.out.println();
+
+    }
+    //ejercicio 3 Eliminar los números pares de una lista enlazada simple
+    public void eliminarPares() {
+        if (estaVacia()) {
+            System.out.println("La lista está vacía.");
+            return;
+        }
+        Nodo<T> actual = primero;
+        Nodo<T> anterior = null;
+        while (actual != null) {
+            if (actual.getDato() instanceof Integer) {
+                int valor = (Integer) actual.getDato();
+                // Si es par, eliminar el nodo
+                if (valor % 2 == 0) {
+                    if (anterior == null) {
+                        // El nodo par está al inicio
+                        primero = actual.getProximo();
+                    } else {
+                        // Saltar el nodo actual
+                        anterior.setProximo(actual.getProximo());
+                    }
+                    tamaño--;
+                } else {
+                    // Solo avanzamos el puntero anterior si no eliminamos
+                    anterior = actual;
                 }
             }
             actual = actual.getProximo();
         }
-        System.out.println();
+        System.out.println("Nodos con números pares eliminados.");
     }
 }

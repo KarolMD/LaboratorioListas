@@ -3,7 +3,7 @@ package co.edu.uniquindio.poo.ejerciciosListaSimple;
 public class Main {
 
     public static void main(String[] args) {
-        probarCedulaPar();
+        probarEliminarPar();
     }
 
     public static void probarPosicionesImpares() {
@@ -32,6 +32,19 @@ public class Main {
         listaPersonas.mostrar();
 
         listaPersonas.mostrarPersonasCedulaPar();
+    }
+
+    public static void probarEliminarPar() {
+        ListaSimpleEnlazada<Integer> lista = new ListaSimpleEnlazada<>();
+
+        lista.agregarUltimo(new Nodo<>(1));
+        lista.agregarUltimo(new Nodo<>(2));
+        lista.agregarUltimo(new Nodo<>(3));
+        lista.agregarUltimo(new Nodo<>(4));
+
+        lista.mostrar();
+        lista.eliminarPares();
+        lista.mostrar();
     }
 }
 
