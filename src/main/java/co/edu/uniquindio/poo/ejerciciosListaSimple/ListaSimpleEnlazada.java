@@ -174,4 +174,39 @@ public class ListaSimpleEnlazada<T extends Comparable<T>> implements Iterable<T>
     }
 
     //Metodo ejercicio 1 Obtener los números de las posiciones impares
+    public void PosicionImpar(T dato){
+        Nodo<T> actual = primero;
+        int indexBusqueda =0;
+        System.out.print("Elementos en posiciones impares: ");
+
+        while (actual != null) {
+            if (indexBusqueda % 2 != 0) {
+                System.out.print(actual.getDato() + " ");
+            }
+            actual = actual.getProximo();
+            indexBusqueda++;
+        }
+        System.out.println();
+    }
+    //ejercicio 2 Obtener la lista de personas tengan cédula con cantidad de números par
+    public void mostrarPersonasCedulaPar() {
+        Nodo<T> actual = primero;
+
+        System.out.print("Personas con cédula de longitud par: ");
+
+        while (actual != null) {
+            // Verificamos si el dato guardado en el nodo es una Persona
+            if (actual.getDato() instanceof Persona) {
+                Persona persona = (Persona) actual.getDato();
+                String cedula = persona.getCedula();
+
+                // Si la longitud de la cédula es par, la mostramos
+                if (cedula.length() % 2 == 0) {
+                    System.out.print(persona + " | ");
+                }
+            }
+            actual = actual.getProximo();
+        }
+        System.out.println();
+    }
 }
